@@ -12,11 +12,11 @@
 
 // same code with promises to make it easy to understand
 const asyncHandler = (requestHandler) => {
-  (request, response, next) => {
+  return (request, response, next) => {
     Promise.resolve(requestHandler(request, response, next)).catch((error) =>
       next(error)
     );
   };
 };
 
-export default asyncHandler;
+export { asyncHandler };

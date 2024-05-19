@@ -7,7 +7,7 @@ dotenv.config({
 });
 
 import connectDB from "./db/index.js";
-import app from "./app.js";
+import { app } from "./app.js";
 
 connectDB()
   .then(() => {
@@ -25,3 +25,7 @@ connectDB()
   .catch((error) => {
     console.log("MONGODB connect failed : ", error);
   });
+
+app.get("/", (req, res) => {
+  res.send("<h1>Hello</h1>");
+});

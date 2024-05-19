@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+// MIDDLEWARES
 // configure cors
 app.use(
   cors({
@@ -34,4 +35,12 @@ app.use(express.static("public"));
 // configure cookie-parser
 app.use(cookieParser());
 
-export default app;
+//===============================================
+// ROUTES
+
+import userRouter from "./routes/user.routes.js";
+
+// routes delaration
+app.use("/api/v1/users", userRouter);
+
+export { app };

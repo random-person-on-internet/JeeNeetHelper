@@ -13,6 +13,22 @@ const questionSchema = new Schema(
       required: true,
     },
 
+    options: {
+      type: [String],
+      required: true,
+      validator: {
+        validator: options.length === 4,
+        message: "Question must have exactly 4 options",
+      },
+    },
+
+    answerIndex: {
+      type: Number,
+      required: true,
+      validaor: (value) => value >= 0 && value < 4,
+      message: "answerIndex must be between 0 and 3 (inclusive)",
+    },
+
     solutions: [
       {
         type: Schema.Types.ObjectId,

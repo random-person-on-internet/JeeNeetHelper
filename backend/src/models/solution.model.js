@@ -4,8 +4,10 @@ import { Question } from "./question.model";
 const solutionSchema = new Schema(
   {
     content: {
-      type: String, // cloudinary url
-      required: true,
+      content: {
+        type: String, // Explanation text
+        or: [{ type: String }], // Cloudinary URL (optional)
+      },
     },
 
     question: {
