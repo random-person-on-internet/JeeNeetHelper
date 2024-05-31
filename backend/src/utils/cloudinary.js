@@ -19,11 +19,17 @@ const uploadOnCloudinary = async (localFilePath) => {
     // file has been uploaded seccesfully
     fs.unlinkSync(localFilePath);
     console.log("File is uploaded on cloudinary", response.url);
-    return response.url;
+
+    // I am an idiot who has made a silly mistake
+    // make sure to check wth are u returning in the function
+    // is it response or is it response.url
+    // otherwise it'll be very very hard to debug later
+
+    return response;
   } catch (error) {
     fs.unlinkSync(localFilePath); // remove the locally saved temporary file
     throw error;
   }
 };
 
-export default uploadOnCloudinary;
+export { uploadOnCloudinary };

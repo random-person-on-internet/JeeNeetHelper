@@ -31,10 +31,6 @@ const userSchema = new Schema(
       type: String, //cloudinary url
     },
 
-    phoneNumber: {
-      type: Number,
-    },
-
     questionsSolved: [
       {
         type: Schema.Types.ObjectId,
